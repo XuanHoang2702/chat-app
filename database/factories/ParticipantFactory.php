@@ -1,0 +1,28 @@
+<?php
+
+namespace Database\Factories;
+
+use App\Models\Conversation;
+use App\Models\Participant;
+use App\Models\User;
+use Illuminate\Database\Eloquent\Factories\Factory;
+/**
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Participant>
+ */
+class ParticipantFactory extends Factory
+{
+    /**
+     * Define the model's default state.
+     *
+     * @return array<string, mixed>
+     */
+    protected $model = Participant::class;
+
+    public function definition()
+    {
+        return [
+            'conversation_id' => Conversation::factory(),
+            'user_id' => User::factory(),
+        ];
+    }
+}
